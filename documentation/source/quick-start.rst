@@ -29,7 +29,7 @@ but give them shorter names for convenience.
   mv -i GCA_002165095.2_ASM216509v2_genomic.fna.gz  data/sc.fna.gz
   mv -i GCA_905071835.1_MSB1_4I_genomic.fna.gz      data/ms.fna.gz
 
-First, lets count the kmers in each and save the results in meryl databases.
+First, lets count the k-mers in each and save the results in meryl databases.
 
 .. code-block:: none
   :caption: Counting k-mers in a single file.
@@ -73,10 +73,10 @@ We can show the k-mers in the database by printing the output to the screen
 
 (Messy detail: Option `-Q` turns off the report of the command tree.  Option
 `-t 1` is supplied to prevent meryl from processing its 64 data chunks in
-parallel; for the print operation this results in the output kmers being
+parallel; for the print operation this results in the output k-mers being
 unsorted.  See {INSERT LINK TO THREADS AND PRINT HERE}.)
 
-Let's now count the other two databases and combine the kmers from all three
+Let's now count the other two databases and combine the k-mers from all three
 genomes into one database, all in one command.
 
 .. code-block:: none
@@ -128,8 +128,8 @@ each k-mer.  Line 16 will {EVENTUALLY} describe the conditions that must be
 met for a k-mer to be output.  For `union`, there is only one condition: the
 k-mer must be in at least one input.
 
-The end result of this is to independently count kmers in `sc.fna.gz` and
-`ms.fna.gz`, writing the kmers from each to outpout databases {SEE COUNTING}
+The end result of this is to independently count k-mers in `sc.fna.gz` and
+`ms.fna.gz`, writing the k-mers from each to outpout databases {SEE COUNTING}
 `sc.meryl` and `ms.meryl`, respectively.  When the counting operations are
 done, those two new databases and the third pre-computed database are sent as
 input to the first action which will combine all k-mers, summing their
@@ -141,7 +141,7 @@ operations.  However, if a k-mer size is supplied, it must match the size of
 ALL input databases, and ALL input databases must have k-mers of the same
 size.
 
-A meryl database also stores the histogram of kmer values.  This can be
+A meryl database also stores the histogram of k-mer values.  This can be
 displayed:
 
 .. code-block:: none
@@ -184,7 +184,7 @@ Which hints there is a 52 copy repeat of around 500 bases in Escherichia coli
 EC931.  Histograms from the other two genomes show either no high copy repeat
 (Escherichia coli SCEC020022, `sc.meryl`) or a potential 64 copy repeat
 (Escherichia coli MSB1_4I-sc-2280412, `ms.meryl`).  Let's now extract those
-kmers and see where they are on the genomes.
+k-mers and see where they are on the genomes.
 
 .. code-block:: none
   :caption: Extracting high-value k-mers.
@@ -212,7 +212,7 @@ kmers and see where they are on the genomes.
 The `meryl-lookup` tool compares FASTA/FASTQ sequences against a meryl
 database (or several databases) and generates various reports about how the
 k-mers in the database(s) "paint" onto the input sequences.  We'll use it to
-generate a bed file of the bases covered by kmers in our E.coli  database.
+generate a bed file of the bases covered by k-mers in our E.coli  database.
 
 .. code-block:: none
   :caption: Finding runs of high-value k-mers in a genome.
@@ -289,7 +289,7 @@ with single base differences:
   CP049118.1      3762937 3763257
   CP049118.1      3763257 3763384
 
-Though this isn't really part of meryl, the high-count kmers can be passed to
+Though this isn't really part of meryl, the high-count k-mers can be passed to
 a greedy assembler with nice results (the greedy assembler is included in the
 meryl source code, but isn't installed in the binary directory).
 
@@ -313,7 +313,7 @@ meryl source code, but isn't installed in the binary directory).
   GTGCTTTTGCCGTTACGCACCACCCCGTCAGTAGCTGAACAGGAGGGACAGCTGATAGAAACAGAAGCCACTGGAGC
   ACCTCAAAAACACCATCATACACTAAATCAGTAAGTTGGCAGCATCACC
 
-Dropping the kmer threshold to 10 (`at-least 10`) and assembling those repeat
+Dropping the k-mer threshold to 10 (`at-least 10`) and assembling those repeat
 k-mers finds 11 repeat sequences, one of length 770 bp and one of length 1195
 bp.
 

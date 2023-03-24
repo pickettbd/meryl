@@ -102,12 +102,12 @@ Is that a binary?
          not stripped
 
 The algorithm is quite simple, but the details are complicated: it simply
-builds a list of all the kmers in the input sequences, sorts, then counts how
-many times each kmer is in the list and write that to the output file.
+builds a list of all the k-mers in the input sequences, sorts, then counts how
+many times each k-mer is in the list and write that to the output file.
 
-The details are to split the kmer into a prefix and a suffix.  The prefix
-points to a bucket into which all the suffixes are listed.  Once all kmers
-are stored, each bucket is sorted then scanned to count the kmers.
+The details are to split the k-mer into a prefix and a suffix.  The prefix
+points to a bucket into which all the suffixes are listed.  Once all k-mers
+are stored, each bucket is sorted then scanned to count the k-mers.
 Bit-packed integers are used throughout to minimize memory usage.
 
 In all it's embarassing glory, here is the first ever version of meryl
@@ -482,7 +482,7 @@ The second block of code converts the bucket sizes into an offset to the start o
       fprintf(stderr, "\n");
   }
 
-The third block of code makes a second pass through all the kmers in the sequence, adding
+The third block of code makes a second pass through all the k-mers in the sequence, adding
 suffixes to the bucket indicated by the prefix.
 
 .. code-block:: none
@@ -555,7 +555,7 @@ suffixes to the bucket indicated by the prefix.
       fprintf(stderr, "\n");
   }
 
-The fourth block of code sorts the kmers and writes output.  It is using its
+The fourth block of code sorts the k-mers and writes output.  It is using its
 own implementation of `heap sort
 <https://dl.acm.org/doi/10.1145/512274.512284>_`, likely beacuse the C sort()
 implementation is not in place.  Output is written to ``stdout``.

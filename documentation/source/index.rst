@@ -13,12 +13,12 @@ Meryl
 
 
 `Meryl <http://github.com/marbl/meryl>`_ is a tool for working with sets of
-kmers.  A set of kmers, when annotated with an integer value (typically the
-number of times the kmer occurs in a set of sequences) and optionally a
+k-mers.  A set of k-mers, when annotated with an integer value (typically the
+number of times the k-mer occurs in a set of sequences) and optionally a
 label, is termed a database.  Meryl comprises three (modules), one for
-generating kmer databases, one for filtering and combining databases, and one
+generating k-mer databases, one for filtering and combining databases, and one
 for searching databases.  A simple, but yet to be documented, C++ API to
-access kmer databases exists.
+access k-mer databases exists.
 
 Publications
 ============

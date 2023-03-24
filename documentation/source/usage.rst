@@ -43,7 +43,7 @@ threads, and simple sequence reductions are all global options.
     --help           Display command line help.
     help             Display command line help.
 
-Obsolete forms of some of these are still allowed.  The kmer size can be set
+Obsolete forms of some of these are still allowed.  The k-mer size can be set
 with `k=<kmer-size>`, memory limits with `memory=<memory-in-gigabytes>`,
 thread usage with `threads=<thread-count>`.
 
