@@ -11,7 +11,7 @@ plasmids.
 
 We'll use
 `EC931 <https://www.ncbi.nlm.nih.gov/bioproject/PRJNA608094>`_,
-`SCEC020022 <https://www.ncbi.nlm.nih.gov/bioproject/PRJNA418674>`_ and
+`SCEC020022 <https://www.ncbi.nlm.nih.gov/bioproject/PRJNA418674>`_, and
 `MSB1_4I-sc-2280412 <https://www.ncbi.nlm.nih.gov/bioproject/PRJNA646837>`_,
 but give them shorter names for convenience.
 
@@ -346,7 +346,7 @@ MSB1_4I-sc-2280412 and assemble those.
   GTGCTTTTGCCGTTACGCACCACCCCGTCAGTAGCTGAACAGGAGGGACAGCTGATAGAAACAGAAGCCACTGGAGC
   ACCTCAAAAACACCATCATACACTAAATCAGTAAGTTGGCAGCATCACC
 
-Aside from a strand and sequence order difference caused by the assemlber,
+Aside from a strand and sequence order difference caused by the assembler,
 they're the same!
 
 .. code-block:: none
