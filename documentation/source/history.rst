@@ -3,34 +3,34 @@
 Software Background
 ====================
 
-Meryl was first imagined in late-2000/early-2001/mid-2001 while BPW as at `Celera Genomics
+Meryl was first imagined in late-2000/early-2001/mid-2001 while BPW was at `Celera Genomics
 <https://en.wikipedia.org/wiki/Celera_Corporation>`_.
 
-A 3 June 2001 journal entry is titled "merConting the genome", but makes no
+A 3 June 2001 journal entry is titled "merCounting the genome", but makes no
 mention of motivation for doing so.  The same journal has an 18 June entry
 outlining the algorithm, and this entry also strongly hints the application
 was to build a fast 20-mer to assembly coordinate lookup table.  The "Meryl"
 name is mentioned on 16 August 2002, desiring to increment/decrement the
 counts.  There is even *source code* dating back to 12 February 2001 deep in
 the dusty archives; as that's the oldest archive found, meryl is doubtless a
-little bit older yet.  It was originally called "merMaid" or "merCounter",
+little bit older yet.  It was originally called "merMaid" or "merCounter";
 the "Meryl" name first appears on 11 June 2001, and the code looks reasonably
 mature.
 
-Meryl was definitely used twice in the assembly of Anopheles gambiae [`Holt,
+Meryl was definitely used twice in the assembly of *Anopheles gambiae* [`Holt,
 et al. 2002 <https://science.sciencemag.org/content/298/5591/129>`_], once to
 find k-mers that occur frequently and exclude them from seeding overlaps
 (which is how it is still used in Canu [`Koren and Walenz 2017
 <http://doi.org/10.1101/gr.215087.116>`_]) and once to estimate repeat
-content of the assembly.  It is mentioned, anonymously, the paper:
+content of the assembly.  It is mentioned, anonymously, in the paper:
 
-  By counting the number of times each 20-nucleotide oligomer in the Anopheles and Drosophila assemblies appeared in its corre- sponding whole-genome shotgun data, we con- firmed that simple repeats are not expanded in Anopheles
+  By counting the number of times each 20-nucleotide oligomer in the Anopheles and Drosophila assemblies appeared in its corresponding whole-genome shotgun data, we confirmed that simple repeats are not expanded in Anopheles
 
 The supplement elaborates a bit:
 
   **METHODS FOR ESTIMATING REPEAT CONTENT:**
 
-  The consensus sequence of scaffolded contigs was analyzed for repeat content as follows. For each 20mer of the consensus, we counted the number of times that that 20mer appeared in the set of approximately 4.5 million sequence reads. Out of 262.8 M consensus 20mers, 26.3M (10.0%) occurred more than 50 times (5 times what is expected for unique sequence, given 10- fold sequence coverage). For comparison, of 133.5M consensus 20mers from a recent reassembly of the D. melanogaster genome that was done using the same version of the assembly software that was used for mosquito , 13.0M (9.7%) were observed more than 60 times (5 times more than expected, given 12-fold sequence coverage of the Drosophila genome). Using a count cutoff of 1.5 times expected or 50 times expected gives a similar picture: the repetative fractions of the A. gambiae and D. melanogaster genomes are not strikingly different.
+  The consensus sequence of scaffolded contigs was analyzed for repeat content as follows. For each 20mer of the consensus, we counted the number of times that that 20mer appeared in the set of approximately 4.5 million sequence reads. Out of 262.8 M consensus 20mers, 26.3M (10.0%) occurred more than 50 times (5 times what is expected for unique sequence, given 10- fold sequence coverage). For comparison, of 133.5M consensus 20mers from a recent reassembly of the *D. melanogaster* genome that was done using the same version of the assembly software that was used for mosquito, 13.0M (9.7%) were observed more than 60 times (5 times more than expected, given 12-fold sequence coverage of the Drosophila genome). Using a count cutoff of 1.5 times expected or 50 times expected gives a similar picture: the repetative fractions of the *A. gambiae* and *D. melanogaster* genomes are not strikingly different.
 
 Unfortunately, the earliest versions of the software are not online, likely
 because they were never stored in a version control system.  The earliest
@@ -47,7 +47,7 @@ released to SourceForge on 14 April 2004 (`revision 4 has the good stuff
 <https://sourceforge.net/p/wgs-assembler/svn/4>`_).  Use of meryl is
 mentioned in `wga.pl <https://sourceforge.net/p/wgs-assembler/svn/4/tree//trunk/example/wga.pl>`_.
 The meryl code and a CA-specific function to access sequence data are `nicely
-organized <https://sourceforge.net/p/wgs-assembler/svn/4/tree/trunk/src/AS_MER/>`_, the
+organized <https://sourceforge.net/p/wgs-assembler/svn/4/tree/trunk/src/AS_MER/>`_, with the
 bulk of meryl in one file (`AS_MER_meryl.cc <https://sourceforge.net/p/wgs-assembler/svn/4/tree/trunk/src/AS_MER/AS_MER_meryl.cc>`_).
 
 The offline BPW archives contain several early versions, including one just nine days
@@ -103,7 +103,7 @@ Is that a binary?
 
 The algorithm is quite simple, but the details are complicated: it simply
 builds a list of all the k-mers in the input sequences, sorts, then counts how
-many times each k-mer is in the list and write that to the output file.
+many times each k-mer is in the list and writes that to the output file.
 
 The details are to split the k-mer into a prefix and a suffix.  The prefix
 points to a bucket into which all the suffixes are listed.  Once all k-mers
@@ -344,7 +344,7 @@ In all it's embarassing glory, here is the first ever version of meryl
   }
 
 The first code block reads input sequence from disk, converts each base into
-a 3-bit code, the counts the size of each bucket.
+a 3-bit code, then counts the size of each bucket.
 
 .. code-block:: c++
 
